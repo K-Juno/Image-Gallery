@@ -94,6 +94,42 @@
   color: white;
 }
 
+.tagContainer {
+  opacity: 0%;
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+}
+
+.inputTags {
+  background-color: white;
+  width: fit-content;
+  position: absolute;
+  top: 3rem;
+}
+
+.inputTags {
+  background-color: grey;
+  width: fit-content;
+  position: absolute;
+  top: 3rem;
+}
+
+.savedTags {
+  background-color: white;
+  width: fit-content;
+  position: absolute;
+  top: 5rem;
+}
+
+.saveButton {
+  width: 4rem;
+  height: 2rem;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid #818181;
+}
+
 @media (min-width: 768px) {
   .imgList {
     grid-template-columns: 1fr 1fr;
