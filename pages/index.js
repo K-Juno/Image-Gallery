@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import Nav from '../components/nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,6 +47,7 @@ export default function Home({images}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.main}>
+        <Nav/>
         <h1 className={styles.title}>GALLERY</h1>
         <ul className={styles.imgList}>
           {images.map((image) => (
