@@ -40,6 +40,42 @@
   opacity: 65%;
 }
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border: 1px solid black;
+}
+
+.input {
+  background: #E1E1E1;
+  height: 2rem;
+  width: 13rem;
+  text-align: center;
+  border: 0;
+}
+
+.uploadButton {
+  width: 7rem;
+  height: 3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.uploadButton:hover {
+  background-color: black;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .imgList {
     grid-template-columns: 1fr 1fr;
