@@ -35,7 +35,7 @@ export default function Tags() {
       {tagsValue && <p className={styles.inputTags}>#{tagsValue}</p>}
     <ul className={styles.tagsList}>
     {tags.map((tag) => (
-      <li>
+      <li key={tag.file}>
         {tags && <p className={styles.savedTags}>#{tag}</p>}
       </li>
       ))}
