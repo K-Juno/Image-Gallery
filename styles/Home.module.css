@@ -101,33 +101,29 @@
   left: 2rem;
 }
 
-.inputTags {
-  background-color: white;
-  width: fit-content;
-  position: absolute;
-  top: 3rem;
-}
-
-.inputTags {
-  background-color: grey;
-  width: fit-content;
-  position: absolute;
-  top: 3rem;
-}
-
-.savedTags {
-  background-color: white;
-  width: fit-content;
-  position: absolute;
-  top: 5rem;
-}
-
 .saveButton {
   width: 4rem;
   height: 2rem;
   background-color: white;
   cursor: pointer;
   border: 1px solid #818181;
+}
+
+.tagsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.inputTags {
+  background-color: grey;
+  width: fit-content;
+}
+
+.savedTags {
+  background-color: white;
+  width: fit-content;
 }
 
 @media (min-width: 768px) {
