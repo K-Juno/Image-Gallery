@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Nav from '../components/nav'
 import Tags from '../components/tags'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -53,7 +54,7 @@ export default function Home({images}) {
         <ul className={styles.imgList}>
           {images.map((image) => (
           <li key={image.id}>
-            <div className={styles.imgContainer}>
+              <div className={styles.imgContainer}>
               <Image
               src={image.file}
 	            alt=""
@@ -61,7 +62,7 @@ export default function Home({images}) {
               height="350"
               className={styles.images}
               />
-              <Tags/>
+            <Tags/>
             </div>
           </li>
           )
