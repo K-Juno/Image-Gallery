@@ -46,7 +46,7 @@
   position: relative;
 }
 
-.imgContainer:hover .tagContainer {
+.imgContainer:hover .tagsContainer {
   opacity: 100%;
 }
 
@@ -76,10 +76,22 @@
 
 .input {
   background: #E1E1E1;
-  height: 2rem;
   width: 13rem;
+  border: 0;
+}
+
+.input_tags {
+  background: #E1E1E1;
+  height: 2rem;
+  min-width: 13rem;
   text-align: center;
   border: 0;
+}
+
+.uploadTags {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .uploadButton {
@@ -94,7 +106,7 @@
   color: white;
 }
 
-.tagContainer {
+.tagsContainer {
   opacity: 0%;
   position: absolute;
   top: 3rem;

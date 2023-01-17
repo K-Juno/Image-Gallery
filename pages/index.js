@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Nav from '../components/nav'
-import Tags from '../components/tags'
 import Link from 'next/link'
+// import Tags from '../components/tags'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,7 +30,7 @@ export async function getStaticProps() {
       title: resource.public_id,
       file: resource.secure_url,
       width,
-      height,
+      height
     }
   });
   return {
@@ -54,15 +54,17 @@ export default function Home({images}) {
         <ul className={styles.imgList}>
           {images.map((image) => (
           <li key={image.id}>
-              <div className={styles.imgContainer}>
-              <Image
-              src={image.file}
-	            alt=""
-	            width="350"
-              height="350"
-              className={styles.images}
+            <div className={styles.imgContainer}>
+              <Link href={image.file}>
+                <Image
+                src={image.file}
+	              alt=""
+	              width="350"
+                height="350"
+                className={styles.images}
               />
-            <Tags/>
+              </Link>
+            {/* <Tags/> */}
             </div>
           </li>
           )

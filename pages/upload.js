@@ -8,7 +8,10 @@ export default function Upload() {
   const [images, setImages] = useState([]);
   const [image, setImage] = useState(null);
   const [imageValue, setImageValue] = useState("");
-  
+
+  const [tagsValue, setTagsValue] = useState("");
+  const [tags, setTags] = useState([]);
+
   return (
   <>
   <NavBack/>
@@ -38,6 +41,7 @@ export default function Upload() {
         console.log(json);
         setImages([...images, json]);
         setImage(null);
+        setTags([...tags, tagsValue]);
       }}
       >
         <label htmlFor="image"/>
@@ -53,10 +57,23 @@ export default function Upload() {
             setImage(event.target.files[0]);
           }}
         />
-         {image && <ImagePreview file={image}/>}
-        <button type="submit" className={styles.uploadButton}>UPLOAD</button>
-      </form>
-      </div>
+        {image && <ImagePreview file={image}/>}
+        <div className={styles.uploadTags}>
+          <label htmlFor="tags">Add Tags:</label>
+          <input className={styles.input_tags}
+          type="text"
+          name="tags"
+          id="tags"
+          placeholder="#hashtags"
+          value={tagsValue}
+          onChange={(event) => {
+            setTagsValue(event.target.value);
+          }}
+          />
+        </div>    
+      <button type="submit" className={styles.uploadButton}>UPLOAD</button>
+    </form>
+  </div>
     </>
   );
 }
