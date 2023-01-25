@@ -1,46 +1,56 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
-import Nav from '../components/nav'
-import Link from 'next/link'
-// import Tags from '../components/tags'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "../styles/Home.module.css";
+import Nav from "../components/nav";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const params = {
-    expression: 'folder="image-upload"'
-  }
-  const paramString = Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`).join('&');
+    expression: 'folder="image-upload"',
+    with_field: "tags",
+  };
+  const paramString = Object.keys(params)
+    .map((key) => `${key}=${encodeURIComponent(params[key])}`)
+    .join("&");
 
-  const results = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/resources/search?${paramString}`, {
-    headers: {
-      Authorization: `Basic ${Buffer.from(process.env.CLOUDINARY_API_KEY + ':' + process.env.CLOUDINARY_API_SECRET).toString('base64')}`
-    },
-  }).then(r => r.json());
-  console.log('results', results);
+  const results = await fetch(
+    `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/resources/search?${paramString}`,
+    {
+      headers: {
+        Authorization: `Basic ${Buffer.from(
+          process.env.CLOUDINARY_API_KEY +
+            ":" +
+            process.env.CLOUDINARY_API_SECRET
+        ).toString("base64")}`,
+      },
+    }
+  ).then((r) => r.json());
+  console.log("results", results);
 
   const { resources } = results;
 
-  const images = resources.map(resource => {
+  const images = resources.map((resource) => {
     const { width, height } = resource;
     return {
       id: resource.asset_id,
       title: resource.public_id,
       file: resource.secure_url,
+      tags: resource.tags,
       width,
-      height
-    }
+      height,
+    };
   });
   return {
     props: {
-      images
-    }
-  }
+      images,
+    },
+  };
 }
 
-export default function Home({images}) {
+export default function Home({ images }) {
   return (
     <>
       <Head>
@@ -49,29 +59,37 @@ export default function Home({images}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.main}>
-        <Nav/>
+        <Nav />
         <h1 className={styles.title}>GALLERY</h1>
         <ul className={styles.imgList}>
           {images.map((image) => (
-          <li key={image.id}>
-            <div className={styles.imgContainer}>
-              <Link href={image.file}>
-                <Image
-                src={image.file}
-	              alt=""
-	              width="350"
-                height="350"
-                className={styles.images}
-              />
-              </Link>
-            {/* <Tags/> */}
-            </div>
-          </li>
-          )
-          )
-          }
+            <li key={image.id}>
+              <div className={styles.imgContainer}>
+                <Link href={image.file}>
+                  <Image
+                    src={image.file}
+                    alt=""
+                    width="350"
+                    height="350"
+                    className={styles.images}
+                  />
+                </Link>
+                <div className={styles.tagsContainer}>
+                  <ul className={styles.tagsList}>
+                    {image.tags.map((tag) => (
+                      <li key={tag.id}>
+                        {image.tags && (
+                          <p className={styles.savedTags}>#{tag}</p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </li>
+          ))}
         </ul>
       </main>
     </>
-  )
+  );
 }

@@ -111,14 +111,7 @@
   position: absolute;
   top: 3rem;
   left: 2rem;
-}
-
-.saveButton {
-  width: 4rem;
-  height: 2rem;
-  background-color: white;
-  cursor: pointer;
-  border: 1px solid #818181;
+  height: 100%;
 }
 
 .tagsList {
@@ -126,11 +119,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-}
-
-.inputTags {
-  background-color: grey;
-  width: fit-content;
 }
 
 .savedTags {
