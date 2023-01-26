@@ -4,6 +4,8 @@ import ImagePreview from "../components/preview";
 import { NavBack } from "../components/nav";
 import { toast } from "react-toastify";
 
+Upload.title = "Image Upload";
+
 export default function Upload() {
   const [images, setImages] = useState([]);
   const [image, setImage] = useState(null);
