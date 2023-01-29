@@ -62,64 +62,6 @@ background: white;
   opacity: 65%;
 }
 
-.formContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 350px;
-  gap: 2rem;
-  padding: 2rem;
-  border: 1px solid black;
-}
-
-.uploadImage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.input {
-  background: #E1E1E1;
-  width: 13rem;
-  border: 0;
-}
-
-.input_tags {
-  background: #E1E1E1;
-  height: 2rem;
-  min-width: 13rem;
-  text-align: center;
-  border: 0;
-}
-
-.comment {
-  font-size: 0.7rem;
-}
-
-.uploadTags {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.uploadButton {
-  width: 7rem;
-  height: 3rem;
-  background-color: white;
-  cursor: pointer;
-}
-
-.uploadButton:hover {
-  background-color: black;
-  color: white;
-}
-
 .tagsContainer {
   opacity: 0%;
   position: absolute;
