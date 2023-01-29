@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Upload.module.css";
 import ImagePreview from "../components/preview";
 import { NavBack } from "../components/nav";
 import { toast } from "react-toastify";
@@ -29,12 +29,22 @@ export default function Upload() {
               "upload_preset",
               process.env.NEXT_PUBLIC_UPLOAD_PRESET
             );
-            toast("Upload successful!", {
-              hideProgressBar: true,
-              autoClose: 500,
-              type: "success",
-              position: "top-center",
-            });
+            if (image.size > 10000000) {
+              toast("Upload not successful.", {
+                hideProgressBar: true,
+                autoClose: 500,
+                type: 'error',
+                position: 'top-center',
+              });
+              return false;
+            } else {
+              toast("Upload successful!", {
+                hideProgressBar: true,
+                autoClose: 500,
+                type: "success",
+                position: "top-center",
+              });
+            }
             const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`;
             const response = await fetch(url, {
               method: "POST",

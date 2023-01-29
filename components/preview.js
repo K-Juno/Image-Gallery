@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useMemo } from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Upload.module.css";
 
 export default function ImagePreview({ file }) {
   const src = useMemo(() => URL.createObjectURL(file), [file]);
