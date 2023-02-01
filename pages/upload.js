@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Upload.module.css";
 import ImagePreview from "../components/preview";
-import { NavBack } from "../components/nav";
+import Nav from "../components/nav";
 import { toast } from "react-toastify";
 
 Upload.title = "Image Upload";
@@ -16,7 +16,7 @@ export default function Upload() {
 
   return (
     <>
-      <NavBack />
+      <Nav />
       <h1 className={styles.title}>UPLOAD</h1>
       <div className={styles.formContainer}>
         <form
